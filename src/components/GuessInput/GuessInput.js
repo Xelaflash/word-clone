@@ -1,6 +1,6 @@
 import React from 'react';
 
-function GameInput({ setPastGuesses }) {
+function GuessInput({ setPastGuesses }) {
   const [guess, setGuess] = React.useState('');
 
   const handleGuess = (event) => {
@@ -37,4 +37,4 @@ function GameInput({ setPastGuesses }) {
   );
 }
 
-export default GameInput;
+export default GuessInput;
