@@ -1,6 +1,10 @@
-# Word Game
+# Project 1 from [Josh W Comeau](https://www.joshwcomeau.com/)  [Joy of React](https://www.joyofreact.com/)
 
-## Joy of React, Project I
+**Made in April 2023**
+
+---
+
+## Word Game
 
 In this project, we'll recreate a popular online word game, Wordle:
 
