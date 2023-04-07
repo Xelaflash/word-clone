@@ -5,8 +5,8 @@ function Guesses({ pastGuesses }) {
     <div className="guess-results">
       <h2>Guesses</h2>
 
-      {pastGuesses.map((guess) => (
-        <p className="guess" key={guess}>
+      {pastGuesses.map(({ guess, id }) => (
+        <p className="guess" key={id}>
           {guess}
         </p>
       ))}

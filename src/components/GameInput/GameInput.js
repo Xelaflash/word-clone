@@ -11,7 +11,11 @@ function GameInput({ setPastGuesses }) {
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log({ guess });
-    setPastGuesses((pastGuesses) => [...pastGuesses, guess]);
+    const newGuess = {
+      guess,
+      id: `${guess}-${Math.random()}`,
+    };
+    setPastGuesses((pastGuesses) => [...pastGuesses, newGuess]);
     setGuess('');
   };
 
