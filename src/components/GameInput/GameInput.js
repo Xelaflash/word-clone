@@ -10,7 +10,7 @@ function GameInput() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log('You typed:', guess);
+    console.log({ guess });
     setGuess('');
   };
 
