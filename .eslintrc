@@ -1,6 +1,14 @@
 {
-  "plugins": ["react"],
+  "extends": ["next/core-web-vitals", "wesbos"],
   "rules": {
-    "react/prop-types": 0
+    "no-console": 2,
+    "react/prop-types": 0,
+    "prettier/prettier": [
+      "error",
+      {
+        "trailingComma": "es5",
+        "singleQuote": true
+      }
+    ]
   }
 }
