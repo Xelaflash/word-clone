@@ -1,16 +1,16 @@
 import React from 'react';
+import { checkGuess } from '../../game-helpers';
 
 function GuessInput({ setPastGuesses }) {
   const [guess, setGuess] = React.useState('');
 
   const handleGuess = (event) => {
     setGuess(event.target.value.toUpperCase());
-    // console.log(guess);
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log({ guess });
+
     const newGuess = {
       guess,
       id: `${guess}-${Math.random()}`,
@@ -22,6 +22,7 @@ function GuessInput({ setPastGuesses }) {
   return (
     <form className="guess-input-wrapper" onSubmit={handleSubmit}>
       <label htmlFor="guess-input">Enter guess:</label>
+
       <input
         id="guess-input"
         type="text"

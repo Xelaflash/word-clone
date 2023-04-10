@@ -3,12 +3,12 @@ import { range } from '../../utils';
 import { checkGuess } from '../../game-helpers';
 
 function Cell({ letter, status }) {
-  const className = `cell ${status}`;
+  const className = status ? `cell ${status}` : 'cell';
   return <span className={className}>{letter}</span>;
 }
 
 function Guess({ value, answer }) {
-  // console.log({ answer });
+  console.log({ answer });
 
   const checkLetter = checkGuess(value?.guess, answer);
 

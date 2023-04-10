@@ -12,8 +12,6 @@ export function checkGuess(guess, answer) {
     return null;
   }
 
-  console.log({ guess, answer });
-
   const guessChars = guess.split('');
   const answerChars = answer.split('');
 
