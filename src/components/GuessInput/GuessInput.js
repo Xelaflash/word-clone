@@ -1,5 +1,4 @@
 import React from 'react';
-import { checkGuess } from '../../game-helpers';
 
 function GuessInput({ setPastGuesses, gameStatus }) {
   const [guess, setGuess] = React.useState('');
