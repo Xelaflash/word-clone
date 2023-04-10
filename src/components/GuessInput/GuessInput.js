@@ -1,7 +1,7 @@
 import React from 'react';
 import { checkGuess } from '../../game-helpers';
 
-function GuessInput({ setPastGuesses }) {
+function GuessInput({ setPastGuesses, gameStatus }) {
   const [guess, setGuess] = React.useState('');
 
   const handleGuess = (event) => {
@@ -33,6 +33,7 @@ function GuessInput({ setPastGuesses }) {
         pattern="[a-zA-Z]{5}"
         title="5 letter word"
         required
+        disabled={gameStatus !== 'playing'}
       />
     </form>
   );

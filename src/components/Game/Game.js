@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import { sample } from '../../utils';
 import { WORDS } from '../../data';
@@ -12,19 +12,21 @@ console.info({ answer });
 
 function Game() {
   const [pastGuesses, setPastGuesses] = React.useState([]);
+  const [gameStatus, setGameStatus] = React.useState('');
 
   const isWinner = pastGuesses.some((guess) => guess.guess === answer);
 
-  let gameStatus;
-  if (!isWinner) {
-    gameStatus = 'playing';
-  }
-  if (!isWinner && pastGuesses.length >= 6) {
-    gameStatus = 'lost';
-  }
-  if (isWinner && pastGuesses.length <= 6) {
-    gameStatus = 'win';
-  }
+  useEffect(() => {
+    if (!isWinner) {
+      setGameStatus('playing');
+    }
+    if (!isWinner && pastGuesses.length >= 6) {
+      setGameStatus('lost');
+    }
+    if (isWinner && pastGuesses.length <= 6) {
+      setGameStatus('win');
+    }
+  }, [pastGuesses, isWinner]);
 
   return (
     <>
@@ -33,6 +35,7 @@ function Game() {
         setPastGuesses={setPastGuesses}
         answer={answer}
       />
+
       {gameStatus === 'win' && (
         <div className="happy banner">
           <p>
@@ -45,7 +48,6 @@ function Game() {
           </p>
         </div>
       )}
-
       {gameStatus === 'lost' && (
         <div className="sad banner">
           <p>
@@ -53,8 +55,7 @@ function Game() {
           </p>
         </div>
       )}
-
-      <GuessInput setPastGuesses={setPastGuesses} />
+      <GuessInput setPastGuesses={setPastGuesses} gameStatus={gameStatus} />
     </>
   );
 }
