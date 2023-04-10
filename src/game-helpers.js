@@ -12,13 +12,15 @@ export function checkGuess(guess, answer) {
     return null;
   }
 
-  const guessChars = guess.toUpperCase().split('');
+  console.log({ guess, answer });
+
+  const guessChars = guess.split('');
   const answerChars = answer.split('');
 
   const result = [];
 
   // Step 1: Look for correct letters.
-  for (let i = 0; i < guessChars.length; i++) {
+  for (let i = 0; i < guessChars.length; i += 1) {
     if (guessChars[i] === answerChars[i]) {
       result[i] = {
         letter: guessChars[i],
@@ -31,8 +33,9 @@ export function checkGuess(guess, answer) {
 
   // Step 2: look for misplaced letters. If it's not misplaced,
   // it must be incorrect.
-  for (let i = 0; i < guessChars.length; i++) {
+  for (let i = 0; i < guessChars.length; i += 1) {
     if (guessChars[i] === SOLVED_CHAR) {
+      // eslint-disable-next-line
       continue;
     }
 
